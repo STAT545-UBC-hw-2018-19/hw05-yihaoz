@@ -41,6 +41,7 @@ To show the continents in gapminder_no_oceania:
 ```{r}
 unique(gapminder_no_oceania$continent)
 ```
+
 We can see from the result that Oceania is removed from gapminder. However, levels remain the same.
 
 To remove the unused factor levels:
@@ -115,6 +116,7 @@ If we compare check_level and reordered_level side by side, we can determine if 
 ```{r Part 1-3, fig.cap = "side by side comparison of level change"}
 textplot(cbind(check_level, reordered_level))
 ```
+
 From the result, the arranged country list is exactly same as reordered country level. So we can say `fct_reorder()` is giving correct result.
 
 Use `fct_reorder()` for a plot:
@@ -131,6 +133,7 @@ gapminder_no_oceania %>%
   ggtitle("Effect of fct_reorder() on plot") + 
   theme_bw()
 ```
+
 From the plot, we can see that the continent now is ranked by the max lifeExp(top point of each continent). So `fct_reorder()` does change the continent order of the plot.
 
 
@@ -177,6 +180,7 @@ if (read_rds == gapminder_reordered) print("Read RDS from file is same as the or
 glimpse(read_rds)
 knitr::kable(head(read_rds, 10))
 ```
+
 From the result, we can see that `readRDS()` did not change the order of original reordered data frame.
 
 ```{r}
@@ -202,6 +206,7 @@ knitr::kable(head(read_txt, 10))
 ```{r}
 levels(read_txt$continent)
 ```
+
 From the result, level of continent factors also remain the same. 
 
 
