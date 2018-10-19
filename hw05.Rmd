@@ -148,14 +148,14 @@ levels(gapminder_reordered$continent)
 
 To explore `write_csv()`, we can write gapminder_no_oceania from part 1 into csv file
 ```{r}
-write_csv(gapminder_reordered, "reordered.csv")
+write_csv(gapminder_reordered, "workspace/reordered.csv")
 ```
 
 ### read_csv()
 
-To explore `read_csv()`, we can read data from no_oceania.csv
+To explore `read_csv()`, we can read data from reordered.csv
 ```{r}
-data_read <- read_csv("reordered.csv")
+data_read <- read_csv("workspace/reordered.csv")
 knitr::kable(head(data_read, 10))
 # Check if data matched
 if (data_read == gapminder_reordered) print("Data read and written matched")
@@ -167,12 +167,12 @@ From `glimpse()`, it can be seen that the first continent is Oceania and the con
 
 ### saveRDS()
 ```{r}
-saveRDS(gapminder_reordered, "reordered.rds")
+saveRDS(gapminder_reordered, "workspace/reordered.rds")
 ```
 
 ### readRDS()
 ```{r}
-read_rds = readRDS("reordered.rds")
+read_rds = readRDS("workspace/reordered.rds")
 if (read_rds == gapminder_reordered) print("Read RDS from file is same as the original one")
 glimpse(read_rds)
 knitr::kable(head(read_rds, 10))
@@ -186,12 +186,12 @@ The level of continent factors remains the same.
 
 ### dput()
 ```{r}
-dput(gapminder_reordered, "reordered.txt")
+dput(gapminder_reordered, "workspace/reordered.txt")
 ```
 
 ### dget()
 ```{r}
-read_txt <- dget("reordered.txt")
+read_txt <- dget("workspace/reordered.txt")
 
 if (read_txt == gapminder_reordered) print("Read txt from file is same as the original one")
 # overview of the data read
@@ -250,7 +250,7 @@ The resulting graph not only provides better visualization, but also gives extra
 
 ## Part 4: Writing figures to file
 ```{r}
-ggsave("visualized_plot.png", visualized_plot, width=20, height=15, units = "cm", dpi = 500)
+ggsave("workspace/visualized_plot.png", visualized_plot, width=20, height=15, units = "cm", dpi = 500)
 ```
 
 Here is the saved data:
